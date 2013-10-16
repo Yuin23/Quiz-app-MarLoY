@@ -26,4 +26,10 @@ QuizApp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Remove the Rack::Lock middleware by adding the following line to your environments/development.rb file. 
+  # This is done for installing websocket.
+  config.middleware.delete Rack::Lock
 end
+
+
