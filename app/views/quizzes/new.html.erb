@@ -1,0 +1,37 @@
+<%= form_for @quiz do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, placeholder: 'Please add your title' %>
+
+	 
+	  <%= f.fields_for :questions do |question_f| %>
+	    <%= question_f.label :query, "Question" %>
+		<%= question_f.text_field :query, placeholder: 'Please add your question' %>
+
+		<%= question_f.fields_for :answers do |answer_f| %>
+		    <%= answer_f.label :response, "Answer" %>
+		    <%= answer_f.text_field :response %>
+		    <%= answer_f.check_box :correctness %>
+		<% end %>
+
+
+
+
+
+
+	  <% end %>
+
+  <%= f.submit %>
+
+
+<% if flash[:error] -%>
+ 	<%= flash[:error] %>
+<% end -%>
+
+<% end %>
+
+
+
+
+
+
