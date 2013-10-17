@@ -1,12 +1,14 @@
 QuizApp::Application.routes.draw do
 
+  get "multiplayer_attempts/new"
   devise_for :users
   resources :quizzes do
       resources :attempts, only: [:new, :create, :show]
       resources :questions
+      resources :multiplayer_attempts, only: [:new]
   end
 
-  
+  post '/multiplayer_attempts/check_answer' => 'multiplayer_attempts#check_answer'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

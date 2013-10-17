@@ -1,8 +1,3 @@
 <h1><%= @quiz.title %></h1>
 
-<%@quiz.questions.each do |question| %>
-<%= question.query %>
-	<% question.answers.each do |answer| %>
-		<%= answer.response %>
-	<% end %>
-<% end %>
+<%= button_to 'Play', new_quiz_attempt_path(@quiz), method: :get %>
