@@ -30,6 +30,8 @@ QuizApp::Application.configure do
   # Remove the Rack::Lock middleware by adding the following line to your environments/development.rb file. 
   # This is done for installing websocket.
   config.middleware.delete Rack::Lock
+
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
 
 
